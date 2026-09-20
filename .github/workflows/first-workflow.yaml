@@ -2,7 +2,7 @@ name: First Workflow
 on: [push]
 jobs:
     run-shell-comands:
-        runs-on: ubantu-latest
+        runs-on: ubuntu-latest
         steps:
             - name: "echo as String"
               run: echo "Hello"
