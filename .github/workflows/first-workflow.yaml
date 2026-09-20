@@ -1,0 +1,12 @@
+name: First Workflow
+on: [push]
+jobs:
+    run-shell-comands:
+        runs-on: ubantu-latest
+        steps:
+            - name: "echo as String"
+              run: echo "Hello"
+            - name: Multiline command
+              run: |
+               node -v
+               npm -v
