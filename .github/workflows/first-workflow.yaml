@@ -13,8 +13,8 @@ jobs:
     parallel-job-macos:
         runs-on: macos-latest
         steps:
-            - name: view sw version
-              run: sw_version
+            - name: view macOS version
+              run: sw_vers
     dependent-job:
         runs-on: windows-latest
         needs: run-shell-comands
