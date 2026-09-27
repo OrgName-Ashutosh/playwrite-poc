@@ -73,6 +73,8 @@ jobs:
           path: allure-report
 
   deploy:
+    name: Run Playwright Tests
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
