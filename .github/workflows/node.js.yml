@@ -72,12 +72,17 @@ jobs:
           name: allure-report
           path: allure-report
 
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Upload report to GitHub Pages
         if: always()
         uses: actions/upload-pages-artifact@v4
         with:
           path: allure-report
-
       - name: Deploy to GitHub Pages
-        if: always()
-        uses: actions/deploy-pages@v4
+        id: deployment
+        uses: actions/deploy-pages@v5
