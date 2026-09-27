@@ -82,7 +82,7 @@ jobs:
     steps:
       - name: Upload report to GitHub Pages
         if: always()
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: allure-report
       - name: Deploy to GitHub Pages
