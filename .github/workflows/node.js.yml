@@ -80,11 +80,18 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-24.04
     steps:
-      - name: Upload report to GitHub Pages
-        if: always()
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: allure-report
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+    - name: Download Allure report artifact
+      uses: actions/download-artifact@v5
+      with:
+        name: allure-report
+        path: allure-report
+    
+    - name: Upload report to GitHub Pages
+      if: always()
+      uses: actions/upload-pages-artifact@v5
+      with:
+        path: allure-report
+    
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v5
